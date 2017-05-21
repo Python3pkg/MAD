@@ -1,3 +1,4 @@
+import collections
 #!/usr/bin/env python
 
 #
@@ -28,7 +29,7 @@ class Event:
             raise ValueError("Time must be an integer value (found '%s')." % type(time))
         self.time = time
 
-        if not callable(action):
+        if not isinstance(action, collections.Callable):
             raise ValueError("Only 'callable' objects can be scheduled (found '%s')." % (type(action)))
         self.action = action
 

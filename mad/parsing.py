@@ -103,7 +103,7 @@ t_ignore = ' \t'
 
 def t_error(t):
     # Error handling rule
-    print("Illegal character '%s'" % t.value[0])
+    print(("Illegal character '%s'" % t.value[0]))
     t.lexer.skip(1)
 
 

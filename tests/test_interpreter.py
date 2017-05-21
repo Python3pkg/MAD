@@ -552,7 +552,7 @@ class TestInterpreter(TestCase):
     def fake_client(self):
         fake_client = MagicMock()
         fake_client.schedule = self.simulation.schedule
-        fake_client.next_request_id = MagicMock(side_effect = range(1, 100))
+        fake_client.next_request_id = MagicMock(side_effect = list(range(1, 100)))
         return fake_client
 
     def _a_service_that_rejects_requests(self):

@@ -252,33 +252,33 @@ class Statistics(Listener):
 
     @property
     def complete_request_count(self):
-        counts = (each_operation.complete_call_count for each_operation in self._operations.values())
+        counts = (each_operation.complete_call_count for each_operation in list(self._operations.values()))
         return reduce(lambda x,y: x+y, counts, 0)
 
     @property
     def arrival_count(self):
-        counts = (each_operation.call_count for each_operation in self._operations.values())
+        counts = (each_operation.call_count for each_operation in list(self._operations.values()))
         return reduce(lambda x,y: x+y, counts, 0)
 
     @property
     def rejection_count(self):
-        counts = (each_operation.rejection_count for each_operation in self._operations.values())
+        counts = (each_operation.rejection_count for each_operation in list(self._operations.values()))
         return reduce(lambda x,y: x+y, counts, 0)
 
     @property
     def success_count(self):
-        counts = (each_operation.success_count for each_operation in self._operations.values())
+        counts = (each_operation.success_count for each_operation in list(self._operations.values()))
         return reduce(lambda x,y: x+y, counts, 0)
 
     @property
     def failure_count(self):
-        counts = (each_operation.failure_count for each_operation in self._operations.values())
+        counts = (each_operation.failure_count for each_operation in list(self._operations.values()))
         return reduce(lambda x,y: x+y, counts, 0)
 
     @property
     def response_time(self):
         (total, count) = (0, 0)
-        for (operation, statistics) in self._operations.items():
+        for (operation, statistics) in list(self._operations.items()):
             total += sum(statistics.response_times)
             count += len(statistics.response_times)
         if count <= 0:
@@ -431,7 +431,7 @@ class Monitor(SimulatedEntity):
         self.probes.append(arrival_rate)
 
     def _all_operations(self):
-        for (symbol, entity) in self.environment.bindings.items():
+        for (symbol, entity) in list(self.environment.bindings.items()):
             if isinstance(entity, Operation):
                 yield entity
 

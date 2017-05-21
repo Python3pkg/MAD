@@ -23,7 +23,7 @@ from mad.evaluation import Error, Success
 
 
 class RequestStatus(Enum):
-    PENDING, OK, ERROR, ACCEPTED, REJECTED = range(5)
+    PENDING, OK, ERROR, ACCEPTED, REJECTED = list(range(5))
 
 
 class Request:

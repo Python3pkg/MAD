@@ -124,10 +124,10 @@ class Release(Command):
 
     def release(self):
         current_version = Version.from_source_code()
-        print("Current version: %s" % current_version)
+        print(("Current version: %s" % current_version))
 
         released_version = self.released_version(current_version)
-        print("Releasing version %s" % released_version)
+        print(("Releasing version %s" % released_version))
         if current_version != released_version:
             Version.update_source_code(released_version)
             self.distribution.version = str(released_version)
@@ -160,7 +160,7 @@ class Release(Command):
     def prepare_next_release(self, current_version):
         new_version = current_version.nextMicroRelease()
         Version.update_source_code(new_version)
-        print("Preparing version " + str(new_version))
+        print(("Preparing version " + str(new_version)))
         self.scm.commit("Preparing version %s" % new_version)
 
 

@@ -123,7 +123,7 @@ class WorkerStatisticsTests(TestCase):
 
 
     def _verify(self, **counters):
-        for (counter_name, expected_value) in counters.items():
+        for (counter_name, expected_value) in list(counters.items()):
             self.assertEqual(expected_value, getattr(self.workers, counter_name))
 
 
@@ -244,11 +244,11 @@ class TasksStatisticsTests(TestCase):
             raise AssertionError(context)
 
     def set_state(self, **values):
-        for (each_property, each_value) in values.items():
+        for (each_property, each_value) in list(values.items()):
             setattr(self.statistics, each_property, each_value)
 
     def verify(self, **values):
-        for (label, expected_value) in values.items():
+        for (label, expected_value) in list(values.items()):
             property = getattr(self.statistics, label)
             self.assertEqual(expected_value, property,
                              "Wrong count of {:s} tasks (expected {!s} but found {!s}!)".format(label, expected_value, property))

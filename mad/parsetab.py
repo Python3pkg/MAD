@@ -10,7 +10,7 @@ _lr_signature = 'A764B5F9DCEEE203180194F93875A827'
 _lr_action_items = {'TIMEOUT':([6,16,],[7,7,]),'NUMBER':([13,15,],[17,18,]),'OPEN_CURLY_BRACKET':([5,],[6,]),'COLON':([7,9,],[13,15,]),'PRIORITY':([6,16,],[9,9,]),'QUERY':([0,],[2,]),'$end':([1,5,14,],[0,-38,-39,]),'CLOSE_CURLY_BRACKET':([8,10,11,12,17,18,19,],[14,-43,-42,-41,-44,-45,-40,]),'SLASH':([3,],[4,]),'COMMA':([10,11,12,17,18,],[-43,-42,16,-44,-45,]),'IDENTIFIER':([2,4,],[3,5,]),}
 
 _lr_action = {}
-for _k, _v in _lr_action_items.items():
+for _k, _v in list(_lr_action_items.items()):
    for _x,_y in zip(_v[0],_v[1]):
       if not _x in _lr_action:  _lr_action[_x] = {}
       _lr_action[_x][_k] = _y
@@ -19,7 +19,7 @@ del _lr_action_items
 _lr_goto_items = {'query_option_list':([6,16,],[8,19,]),'query':([0,],[1,]),'priority':([6,16,],[10,10,]),'timeout':([6,16,],[11,11,]),'query_option':([6,16,],[12,12,]),}
 
 _lr_goto = {}
-for _k, _v in _lr_goto_items.items():
+for _k, _v in list(_lr_goto_items.items()):
    for _x, _y in zip(_v[0], _v[1]):
        if not _x in _lr_goto: _lr_goto[_x] = {}
        _lr_goto[_x][_k] = _y

@@ -111,7 +111,7 @@ class WorkerPoolWrapper(SimulatedEntity, WorkerPoolDecorator):
 
 
 class WorkerStatus(Enum):
-    STARTING, IDLE, BUSY = range(3)
+    STARTING, IDLE, BUSY = list(range(3))
 
 
 class Worker(SimulatedEntity):

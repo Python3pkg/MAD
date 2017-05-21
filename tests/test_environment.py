@@ -28,7 +28,7 @@ class EnvironmentTest(TestCase):
         self.assertEqual(env.look_up(symbol), value)
 
     def verify_all_bindings(self, env, bindings):
-        for (symbol, value) in bindings.items():
+        for (symbol, value) in list(bindings.items()):
             self.verify_binding(env, symbol, value)
 
     def test_define_all_symbols(self):

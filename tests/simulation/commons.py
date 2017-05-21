@@ -74,5 +74,5 @@ class ServiceTests(TestCase):
     def fake_client(self):
         fake_client = MagicMock()
         fake_client.schedule = self.simulation.schedule
-        fake_client.next_request_id = MagicMock(side_effect=range(1, 1000))
+        fake_client.next_request_id = MagicMock(side_effect=list(range(1, 1000)))
         return fake_client

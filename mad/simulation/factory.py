@@ -145,5 +145,5 @@ class Simulation:
 
     def _find_by_type(self, type):
         return [each_value
-                for each_value in self.environment.bindings.values()
+                for each_value in list(self.environment.bindings.values())
                 if isinstance(each_value, type)]

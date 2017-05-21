@@ -194,7 +194,7 @@ class LIFOTaskPool(AbstractTaskPool):
 
 
 class TaskStatus(Enum):
-    CREATED, RUNNING, BLOCKED, READY, REJECTED, FAILED, SUCCESSFUL = range(7)
+    CREATED, RUNNING, BLOCKED, READY, REJECTED, FAILED, SUCCESSFUL = list(range(7))
 
 
 class Task:

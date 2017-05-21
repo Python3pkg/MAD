@@ -20,6 +20,7 @@
 from random import random
 
 from mad.ast.settings import Settings
+import collections
 
 
 class Symbols:
@@ -105,7 +106,7 @@ class Evaluation:
     def __init__(self, environment, expression, factory, continuation=lambda x: x):
         self.environment = environment
         self.expression = expression
-        assert callable(continuation), "Continuations must be callable!"
+        assert isinstance(continuation, collections.Callable), "Continuations must be callable!"
         self.continuation = continuation
         self.simulation = self.environment.look_up(Symbols.SIMULATION)
         self.factory = factory;
